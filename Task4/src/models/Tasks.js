@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
-const { validate } = require('./User')
+
 
 
 const taskSchema = new mongoose.Schema({
-    name: {type : String , required : true} ,
+    name: {type : String , required : true , unique : true} ,
     description : {type : String , required: true},
     status : {type : Boolean , default : false } ,
-    user : {type: mongoose.Schema.Types.ObjectId , ref :'User'} ,
-
+    userID : {type: mongoose.Schema.Types.ObjectId , ref :'User' , required : true} ,
+    
 })
 
 const Task = mongoose.model('Task' , taskSchema)

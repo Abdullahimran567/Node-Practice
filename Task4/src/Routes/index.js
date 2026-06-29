@@ -6,6 +6,7 @@ router.get('/' , (req ,res)=> {
     res.json({msg : 'WELCOME TO MY APP'})
 })
 
-
+router.use(require('./authRoutes'))
+router.use('/user' , require('./userRoutes'));
 
 module.exports = router
